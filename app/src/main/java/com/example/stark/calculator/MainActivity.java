@@ -66,9 +66,18 @@ public class MainActivity extends AppCompatActivity {
         cbutton= findViewById(R.id.buttonc);
         backbutton= findViewById(R.id.backspace);
 
+
+
+
         onebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"1");
     //            value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "1";
@@ -78,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
         twobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
+
                 inputview.setText(inputview.getText()+"2");
    //             value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "2";
@@ -88,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
         threebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"3");
       //          value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "3";
@@ -98,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
         fourbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"4");
      //           value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "4";
@@ -108,6 +136,12 @@ public class MainActivity extends AppCompatActivity {
         fivebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"5");
     //            value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "5";
@@ -118,6 +152,12 @@ public class MainActivity extends AppCompatActivity {
         sixbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"6");
       //          value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "6";
@@ -128,6 +168,12 @@ public class MainActivity extends AppCompatActivity {
         sevenbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"7");
     //            value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "7";
@@ -138,6 +184,12 @@ public class MainActivity extends AppCompatActivity {
         eightbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"8");
    //             value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "8";
@@ -148,6 +200,12 @@ public class MainActivity extends AppCompatActivity {
         ninebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"9");
    //             value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "9";
@@ -158,6 +216,12 @@ public class MainActivity extends AppCompatActivity {
         zerobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 inputview.setText(inputview.getText()+"0");
       //          value=Double.parseDouble(inputview.getText().toString());
                 currentvalue=currentvalue+ "0";
@@ -169,9 +233,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                inputview.setText((inputview.getText()+"."));
-                //value=Double.parseDouble(inputview.getText().toString());
-                currentvalue=currentvalue+ ".";
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
+
+                if(!currentvalue.contains("."))
+                {
+                    inputview.setText((inputview.getText()+"."));
+                    currentvalue=currentvalue+ ".";
+
+                }
+
 
 
             }
@@ -181,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 inputview.setText("");
-                resultview.setText("");
+                resultview.setText("0");
                 //value=0;
                 operated=false;
                 currentvalue="";
@@ -193,6 +267,12 @@ public class MainActivity extends AppCompatActivity {
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(Double.isInfinite(result))
+                {
+                    reset();
+                }
+
                 if(inputview.length()>0&&currentvalue.length()>0)
                 {
                     if(inputview.length()>3&&(inputview.getText().charAt(inputview.getText().length()-2)=='/'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='x'||inputview.getText().charAt(inputview.getText().length()-2)=='+'))
@@ -237,15 +317,6 @@ public class MainActivity extends AppCompatActivity {
                     resultview.setText(String.valueOf(result));
                     currentvalue="";
 
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)=='/'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
-                        {
-                            inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
-                        }
-
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)!='+')
-                            inputview.setText(inputview.getText()+" + ");
 
                 }
 
@@ -264,6 +335,21 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
+
+                if(inputview.length()>2)
+                    if(inputview.getText().charAt(inputview.getText().length()-2)=='/'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
+                    {
+                        inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
+                    }
+
+                if(inputview.length()>2) {
+                    if(inputview.getText().charAt(inputview.getText().length()-2)!='+')
+                        inputview.setText(inputview.getText()+" + ");
+                }
+                else if(inputview.getText().length()>0)
+                    inputview.setText(inputview.getText()+ " + ");
+
+
             }
         });
 
@@ -292,14 +378,6 @@ public class MainActivity extends AppCompatActivity {
                     resultview.setText(String.valueOf(result));
                     currentvalue="";
 
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='/'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
-                        {
-                            inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
-                        }
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)!='-')
-                            inputview.setText(inputview.getText()+" - ");
 
                 }
 
@@ -316,6 +394,21 @@ public class MainActivity extends AppCompatActivity {
                         currentvalue="";
                     }
                 }
+
+
+                if(inputview.length()>2)
+                    if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='/'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
+                    {
+                        inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
+                    }
+                if(inputview.length()>2) {
+                    if(inputview.getText().charAt(inputview.getText().length()-2)!='-')
+                        inputview.setText(inputview.getText()+" - ");
+                }
+                else if(inputview.getText().length()>0)
+                    inputview.setText(inputview.getText()+ " - ");
+
+
             }
         });
 
@@ -342,14 +435,6 @@ public class MainActivity extends AppCompatActivity {
                     resultview.setText(String.valueOf(result));
                     currentvalue="";
 
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='/')
-                        {
-                            inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
-                        }
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)!='x')
-                            inputview.setText(inputview.getText()+" x ");
 
                 }
 
@@ -368,6 +453,20 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
+
+                if(inputview.length()>2)
+                    if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='/')
+                    {
+                        inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
+                    }
+                if(inputview.length()>2) {
+                    if(inputview.getText().charAt(inputview.getText().length()-2)!='x')
+                        inputview.setText(inputview.getText()+" x ");
+                }
+                else if(inputview.getText().length()>0)
+                    inputview.setText(inputview.getText()+ " x ");
+
+
             }
         });
 
@@ -395,19 +494,9 @@ public class MainActivity extends AppCompatActivity {
                     resultview.setText(String.valueOf(result));
                     currentvalue="";
 
-                    if(inputview.length()>2)
-                    if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
-                    {
-                        inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
-                    }
-                    if(inputview.length()>2)
-                        if(inputview.getText().charAt(inputview.getText().length()-2)!='/')
-                            inputview.setText(inputview.getText()+" / ");
 
                 }
 
-                //set new current operator
-                current_operation='/';
 
                 if(!operated)
                 {
@@ -420,6 +509,41 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
+
+
+
+                if(inputview.getText().length()>2)
+                {
+
+                    if(inputview.getText().charAt(inputview.getText().length()-2)=='+'||inputview.getText().charAt(inputview.getText().length()-2)=='-'||inputview.getText().charAt(inputview.getText().length()-2)=='x')
+                    {
+                        inputview.setText(inputview.getText().subSequence(0,inputview.getText().length()-3));
+                    }
+
+
+
+                }
+
+                if(inputview.getText().length()>2)
+                {
+                    if(inputview.getText().charAt(inputview.getText().length()-2)!='/')
+                    {
+                        inputview.setText(inputview.getText()+ " / ");
+                    }
+
+                }
+                else if(inputview.getText().length()>0)
+                    inputview.setText(inputview.getText()+ " / ");
+
+
+
+
+
+
+                //set new current operator
+                current_operation='/';
+
+
             }
         });
 
@@ -445,12 +569,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                     resultview.setText(String.valueOf(result));
-                    currentvalue="";
+                    inputview.setText(resultview.getText());
+                    currentvalue=inputview.getText().toString();
                  //   result=0;
                 }
 
-                inputview.setText("");
-                current_operation='=';
+                //inputview.setText("");
+                //current_operation='=';
                 operated=false;
 
             }
@@ -467,6 +592,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void reset() {
+
+        inputview.setText("");
+        resultview.setText("0");
+        //value=0;
+        operated=false;
+        currentvalue="";
+        result=0;
+
+    }
+
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
