@@ -1,15 +1,11 @@
-package com.example.stark.calculator;
+package com.calculator.stark.calculator;
 
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.ConsoleMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.io.Console;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
       //  currentvalue = new String();
         currentvalue="";
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -571,12 +569,13 @@ public class MainActivity extends AppCompatActivity {
                     resultview.setText(String.valueOf(result));
                     inputview.setText(resultview.getText());
                     currentvalue=inputview.getText().toString();
-                 //   result=0;
+                    operated=false;
+
+                    //   result=0;
                 }
 
                 //inputview.setText("");
                 //current_operation='=';
-                operated=false;
 
             }
         });

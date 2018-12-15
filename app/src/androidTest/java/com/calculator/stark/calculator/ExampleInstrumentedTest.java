@@ -1,4 +1,4 @@
-package com.example.stark.calculator;
+package com.calculator.stark.calculator;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

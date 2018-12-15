@@ -1,4 +1,4 @@
-package com.example.stark.calculator;
+package com.calculator.stark.calculator;
 
 import org.junit.Test;
 
